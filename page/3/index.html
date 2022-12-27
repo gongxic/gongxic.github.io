@@ -169,6 +169,74 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gongxicheng.cn/2019/03/27/before2020/2019-03-26-C-sharp-ConvertTimeToUtc-error/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gary Gong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="恭喜">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/27/before2020/2019-03-26-C-sharp-ConvertTimeToUtc-error/" class="post-title-link" itemprop="url">C# ConvertTimeToUtc error</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-03-27 17:51:05" itemprop="dateCreated datePublished" datetime="2019-03-27T17:51:05+00:00">2019-03-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-12-27 12:55:02" itemprop="dateModified" datetime="2022-12-27T12:55:02+00:00">2022-12-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>记录下见过的error,<br>产品环境的代码不一样但是和这个运行的结果是一样的<br>ConvertTimeToUtc</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tz = TimeZoneInfo.FindSystemTimeZoneById(<span class="string">&quot;W. Europe Standard Time&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> swedishTime = TimeZoneInfo.ConvertTime(DateTime.UtcNow, tz);</span><br><span class="line"></span><br><span class="line">System.ArgumentException: The conversion could <span class="keyword">not</span> be completed because the supplied DateTime did <span class="keyword">not</span> have the Kind property <span class="keyword">set</span> correctly.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>解决方式是 直接用了 new data(); 不适用utcnow</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gongxicheng.cn/2018/08/01/before2020/2018-08-01-csharp-indepth-1-The-changing-face-of-Cshapr-development/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -200,7 +268,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-27 12:51:01" itemprop="dateModified" datetime="2022-12-27T12:51:01+00:00">2022-12-27</time>
+                <time title="修改时间：2022-12-27 12:55:02" itemprop="dateModified" datetime="2022-12-27T12:55:02+00:00">2022-12-27</time>
               </span>
 
           
@@ -264,7 +332,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-27 12:51:01" itemprop="dateModified" datetime="2022-12-27T12:51:01+00:00">2022-12-27</time>
+                <time title="修改时间：2022-12-27 12:55:02" itemprop="dateModified" datetime="2022-12-27T12:55:02+00:00">2022-12-27</time>
               </span>
 
           
@@ -328,7 +396,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-27 12:51:01" itemprop="dateModified" datetime="2022-12-27T12:51:01+00:00">2022-12-27</time>
+                <time title="修改时间：2022-12-27 12:55:02" itemprop="dateModified" datetime="2022-12-27T12:55:02+00:00">2022-12-27</time>
               </span>
 
           
@@ -392,7 +460,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-27 12:51:01" itemprop="dateModified" datetime="2022-12-27T12:51:01+00:00">2022-12-27</time>
+                <time title="修改时间：2022-12-27 12:55:02" itemprop="dateModified" datetime="2022-12-27T12:55:02+00:00">2022-12-27</time>
               </span>
 
           
@@ -457,7 +525,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-27 12:51:01" itemprop="dateModified" datetime="2022-12-27T12:51:01+00:00">2022-12-27</time>
+                <time title="修改时间：2022-12-27 12:55:02" itemprop="dateModified" datetime="2022-12-27T12:55:02+00:00">2022-12-27</time>
               </span>
 
           
@@ -524,7 +592,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-27 12:51:01" itemprop="dateModified" datetime="2022-12-27T12:51:01+00:00">2022-12-27</time>
+                <time title="修改时间：2022-12-27 12:55:02" itemprop="dateModified" datetime="2022-12-27T12:55:02+00:00">2022-12-27</time>
               </span>
 
           
@@ -595,7 +663,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-27 12:51:01" itemprop="dateModified" datetime="2022-12-27T12:51:01+00:00">2022-12-27</time>
+                <time title="修改时间：2022-12-27 12:55:02" itemprop="dateModified" datetime="2022-12-27T12:55:02+00:00">2022-12-27</time>
               </span>
 
           
@@ -659,7 +727,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-27 12:51:01" itemprop="dateModified" datetime="2022-12-27T12:51:01+00:00">2022-12-27</time>
+                <time title="修改时间：2022-12-27 12:55:02" itemprop="dateModified" datetime="2022-12-27T12:55:02+00:00">2022-12-27</time>
               </span>
 
           
@@ -749,7 +817,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-27 12:51:01" itemprop="dateModified" datetime="2022-12-27T12:51:01+00:00">2022-12-27</time>
+                <time title="修改时间：2022-12-27 12:55:02" itemprop="dateModified" datetime="2022-12-27T12:55:02+00:00">2022-12-27</time>
               </span>
 
           
@@ -767,83 +835,6 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
 <h1 id="回答"><a href="#回答" class="headerlink" title="回答"></a>回答</h1><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> zeroSheepCount = <span class="number">1</span>, sheep1Count=<span class="number">0</span> , sheep2Count=<span class="number">0</span>, sheep3Count=<span class="number">0</span>, sheep4Count=<span class="number">0</span>, sheep5Count=<span class="number">0</span>;</span><br><span class="line">          <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">          &#123;</span><br><span class="line">              sheep5Count = sheep4Count;</span><br><span class="line">              sheep4Count = sheep3Count;</span><br><span class="line">              sheep3Count = sheep2Count;</span><br><span class="line">              sheep2Count = sheep1Count;</span><br><span class="line">              sheep1Count = zeroSheepCount;</span><br><span class="line"></span><br><span class="line">               <span class="keyword">var</span> newSheep = sheep2Count + sheep4Count;</span><br><span class="line">              zeroSheepCount = newSheep;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">var</span> allCount = zeroSheepCount + sheep1Count + sheep2Count + sheep3Count + sheep4Count + sheep5Count;</span><br><span class="line">          Console.WriteLine(allCount);</span><br></pre></td></tr></table></figure>
 
 <p>常见的处理方式都会弄出来一个羊的对象，然后记录年龄，判断年龄。这样能够解决这个问题，但是羊的数量增加的很快，50年的时候内存已经增加明显，所以这个方法就不会有内存这方面的问题。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gongxicheng.cn/2018/06/17/before2020/2018-06-17-Stringnote/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gary Gong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="恭喜">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/06/17/before2020/2018-06-17-Stringnote/" class="post-title-link" itemprop="url">String注意点</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-06-17 23:15:54" itemprop="dateCreated datePublished" datetime="2018-06-17T23:15:54+00:00">2018-06-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-27 12:51:01" itemprop="dateModified" datetime="2022-12-27T12:51:01+00:00">2022-12-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="字符串换行"><a href="#字符串换行" class="headerlink" title="字符串换行"></a>字符串换行</h1> <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.Console.WriteLine(<span class="string">$@&quot;Your full name is : <span class="subst">&#123;</span></span></span><br><span class="line"><span class="subst"><span class="string">            firstName&#125;</span> <span class="subst">&#123;lastName&#125;</span>&quot;</span>);</span><br></pre></td></tr></table></figure>
-<pre><code>很好的点，可能不高级，但是看了觉着很好。
-</code></pre>
-<h1 id="using-static"><a href="#using-static" class="headerlink" title="using static"></a>using static</h1><pre><code class="C#">   using static System.Console;
-       class Program
-       &#123;
-           static void Main(string[] args)
-           &#123;
-               WriteLine(&quot;Hello World!&quot;);
-           &#125;
-   &#125;
-</code></pre>
-<p>C# 6.0的新写法</p>
 
       
     </div>
@@ -928,7 +919,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
