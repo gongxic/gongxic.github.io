@@ -169,6 +169,74 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gongxicheng.cn/2018/06/28/before2020/2018-06-28-sheepcountquestion/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gary Gong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="恭喜">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/06/28/before2020/2018-06-28-sheepcountquestion/" class="post-title-link" itemprop="url">多少只羊的面试小问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-28 03:32:15" itemprop="dateCreated datePublished" datetime="2018-06-28T03:32:15+00:00">2018-06-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-17 01:34:19" itemprop="dateModified" datetime="2023-03-17T01:34:19+00:00">2023-03-17</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>小羊能活5岁，它在2岁，4岁的时候都会生一只小羊，5岁的时候就死亡了。<br>问：现在有一只刚出生的小羊(0岁),n年后有多少只羊？</p>
+<h1 id="回答"><a href="#回答" class="headerlink" title="回答"></a>回答</h1><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> zeroSheepCount = <span class="number">1</span>, sheep1Count=<span class="number">0</span> , sheep2Count=<span class="number">0</span>, sheep3Count=<span class="number">0</span>, sheep4Count=<span class="number">0</span>, sheep5Count=<span class="number">0</span>;</span><br><span class="line">          <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">          &#123;</span><br><span class="line">              sheep5Count = sheep4Count;</span><br><span class="line">              sheep4Count = sheep3Count;</span><br><span class="line">              sheep3Count = sheep2Count;</span><br><span class="line">              sheep2Count = sheep1Count;</span><br><span class="line">              sheep1Count = zeroSheepCount;</span><br><span class="line"></span><br><span class="line">               <span class="keyword">var</span> newSheep = sheep2Count + sheep4Count;</span><br><span class="line">              zeroSheepCount = newSheep;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">var</span> allCount = zeroSheepCount + sheep1Count + sheep2Count + sheep3Count + sheep4Count + sheep5Count;</span><br><span class="line">          Console.WriteLine(allCount);</span><br></pre></td></tr></table></figure>
+
+<p>常见的处理方式都会弄出来一个羊的对象，然后记录年龄，判断年龄。这样能够解决这个问题，但是羊的数量增加的很快，50年的时候内存已经增加明显，所以这个方法就不会有内存这方面的问题。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gongxicheng.cn/2018/06/17/before2020/2018-06-17-Stringnote/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -200,7 +268,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-27 14:51:38" itemprop="dateModified" datetime="2022-12-27T14:51:38+00:00">2022-12-27</time>
+                <time title="修改时间：2023-03-17 01:34:19" itemprop="dateModified" datetime="2023-03-17T01:34:19+00:00">2023-03-17</time>
               </span>
 
           
@@ -277,7 +345,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-27 14:51:38" itemprop="dateModified" datetime="2022-12-27T14:51:38+00:00">2022-12-27</time>
+                <time title="修改时间：2023-03-17 01:34:19" itemprop="dateModified" datetime="2023-03-17T01:34:19+00:00">2023-03-17</time>
               </span>
 
           
@@ -344,7 +412,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-27 14:51:38" itemprop="dateModified" datetime="2022-12-27T14:51:38+00:00">2022-12-27</time>
+                <time title="修改时间：2023-03-17 01:34:19" itemprop="dateModified" datetime="2023-03-17T01:34:19+00:00">2023-03-17</time>
               </span>
 
           
@@ -499,7 +567,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-27 14:51:38" itemprop="dateModified" datetime="2022-12-27T14:51:38+00:00">2022-12-27</time>
+                <time title="修改时间：2023-03-17 01:34:19" itemprop="dateModified" datetime="2023-03-17T01:34:19+00:00">2023-03-17</time>
               </span>
 
           
@@ -574,7 +642,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-27 14:51:38" itemprop="dateModified" datetime="2022-12-27T14:51:38+00:00">2022-12-27</time>
+                <time title="修改时间：2023-03-17 01:34:19" itemprop="dateModified" datetime="2023-03-17T01:34:19+00:00">2023-03-17</time>
               </span>
 
           
@@ -640,7 +708,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-27 14:51:38" itemprop="dateModified" datetime="2022-12-27T14:51:38+00:00">2022-12-27</time>
+                <time title="修改时间：2023-03-17 01:34:19" itemprop="dateModified" datetime="2023-03-17T01:34:19+00:00">2023-03-17</time>
               </span>
 
           
@@ -753,7 +821,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -766,7 +834,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -798,7 +866,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
