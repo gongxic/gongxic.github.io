@@ -20,20 +20,15 @@
     var CONFIG = {"hostname":"gongxicheng.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="12345678910  &lt;configSections&gt;      &lt;section  name&#x3D;&quot;ReplaceStr&quot; type&#x3D;&quot;System.Configuration.DictionarySectionHandler&quot; &#x2F;&gt;  &lt;&#x2F;configSections&gt;  &lt;ReplaceStr&gt;  &amp;lt">
-<meta property="og:type" content="article">
-<meta property="og:title" content="c# – 从app.config configSection中读取键值对到字典">
-<meta property="og:url" content="https://gongxicheng.cn/2020/01/19/2020/2020-01-19-reading-keyvalue-pairs-into-dictionary-from-app-config-configsection/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="恭喜">
+<meta property="og:url" content="https://gongxicheng.cn/tags/Python/index.html">
 <meta property="og:site_name" content="恭喜">
-<meta property="og:description" content="12345678910  &lt;configSections&gt;      &lt;section  name&#x3D;&quot;ReplaceStr&quot; type&#x3D;&quot;System.Configuration.DictionarySectionHandler&quot; &#x2F;&gt;  &lt;&#x2F;configSections&gt;  &lt;ReplaceStr&gt;  &amp;lt">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-01-19T10:34:05.000Z">
-<meta property="article:modified_time" content="2023-09-08T04:09:29.391Z">
 <meta property="article:author" content="Gary Gong">
-<meta property="article:tag" content="c# .net">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://gongxicheng.cn/2020/01/19/2020/2020-01-19-reading-keyvalue-pairs-into-dictionary-from-app-config-configsection/">
+<link rel="canonical" href="https://gongxicheng.cn/tags/Python/">
 
 
 <script id="page-configurations">
@@ -41,12 +36,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>c# – 从app.config configSection中读取键值对到字典 | 恭喜</title>
+  <title>标签: Python | 恭喜</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123017381-1"></script>
     <script>
@@ -168,90 +163,51 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content tag">
             
 
-    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gongxicheng.cn/2020/01/19/2020/2020-01-19-reading-keyvalue-pairs-into-dictionary-from-app-config-configsection/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gary Gong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="恭喜">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          c# – 从app.config configSection中读取键值对到字典
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-19 10:34:05" itemprop="dateCreated datePublished" datetime="2020-01-19T10:34:05+00:00">2020-01-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <h2 class="collection-header">Python
+          <small>标签</small>
+        </h2>
+      </div>
 
       
-        <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">configSections</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">section</span>  <span class="attr">name</span>=<span class="string">&quot;ReplaceStr&quot;</span> <span class="attr">type</span>=<span class="string">&quot;System.Configuration.DictionarySectionHandler&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">configSections</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">ReplaceStr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">add</span> <span class="attr">key</span>=<span class="string">&quot;(&quot;</span> <span class="attr">value</span>=<span class="string">&quot;0&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">add</span> <span class="attr">key</span>=<span class="string">&quot;)&quot;</span> <span class="attr">value</span>=<span class="string">&quot;0&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ReplaceStr</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> section = (ConfigurationManager.GetSection(<span class="string">&quot;ReplaceStr&quot;</span>) <span class="keyword">as</span> System.Collections.Hashtable)</span><br><span class="line">                 .Cast&lt;System.Collections.DictionaryEntry&gt;()</span><br><span class="line">                 .ToDictionary(n =&gt; n.Key.ToString(), n =&gt; n.Value.ToString());</span><br></pre></td></tr></table></figure>
+    <div class="collection-year">
+      <span class="collection-header">2023</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/c-net/" rel="tag"># c# .net</a>
-          </div>
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2023-09-08T10:34:05+00:00"
+              content="2023-09-08">
+          09-08
+        </time>
+      </div>
 
-        
+      <div class="post-title">
+          <a class="post-title-link" href="/2023/09/08/2023/2023-09-08-learnpython/" itemprop="url">
+            <span itemprop="name">又开始学一轮 Python</span>
+          </a>
+      </div>
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/01/02/before2020/2020-01-02-markdown-help/" rel="prev" title="Markdwon 语法">
-      <i class="fa fa-chevron-left"></i> Markdwon 语法
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/02/16/2020/2020-02-16-%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8ETranscluded%E6%8C%87%E4%BB%A4%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84/" rel="next" title="作用域与Transcluded指令是如何工作的">
-      作用域与Transcluded指令是如何工作的 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
+    </header>
   </article>
+
+    </div>
+  </div>
   
   
+  
+
   
 
 

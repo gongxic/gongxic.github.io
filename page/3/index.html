@@ -169,6 +169,74 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gongxicheng.cn/2019/04/08/before2020/2019-04-08-Dotnet-core-docker-hello/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gary Gong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="恭喜">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/08/before2020/2019-04-08-Dotnet-core-docker-hello/" class="post-title-link" itemprop="url">.Net Core Docker Hello</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-04-08 19:51:05" itemprop="dateCreated datePublished" datetime="2019-04-08T19:51:05+00:00">2019-04-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="创建-Console-App"><a href="#创建-Console-App" class="headerlink" title="创建 Console App"></a>创建 Console App</h2><p>创建文件夹 DockerHello ,在 term 执行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dotnet new console</span><br><span class="line">dotnet run</span><br></pre></td></tr></table></figure>
+
+<h2 id="容器化-Net-Core-程序"><a href="#容器化-Net-Core-程序" class="headerlink" title="容器化 .Net Core 程序"></a>容器化 .Net Core 程序</h2><h3 id="第一个-Dockerfile"><a href="#第一个-Dockerfile" class="headerlink" title="第一个 Dockerfile"></a>第一个 Dockerfile</h3><p>创建没有后缀的的 Dockerfile</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">FROM microsoft/dotnet:2.1-sdk</span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line"><span class="comment"># copy csproj and restore as distinct layers</span></span><br><span class="line">COPY *.csproj ./</span><br><span class="line">RUN dotnet restore</span><br><span class="line"></span><br><span class="line"><span class="comment"># copy and build everything else</span></span><br><span class="line">COPY . ./</span><br><span class="line">RUN dotnet publish -c Release -o out</span><br><span class="line">ENTRYPOINT [<span class="string">&quot;dotnet&quot;</span>, <span class="string">&quot;out/DockerHello.dll&quot;</span>]</span><br><span class="line">````</span><br><span class="line"></span><br><span class="line"><span class="comment">### build and run</span></span><br><span class="line"></span><br><span class="line">分别执行以下两个命令，分别是创建 image 和运行 image</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">docker build -t dotnetapp-dev .</span><br><span class="line">docker run --<span class="built_in">rm</span> dotnetapp-dev Hello from Docker</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gongxicheng.cn/2019/04/08/before2020/2019-04-08-list-to-dictionary/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -200,7 +268,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-06-30 02:39:47" itemprop="dateModified" datetime="2023-06-30T02:39:47+00:00">2023-06-30</time>
+                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
               </span>
 
           
@@ -284,7 +352,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-06-30 02:39:47" itemprop="dateModified" datetime="2023-06-30T02:39:47+00:00">2023-06-30</time>
+                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
               </span>
 
           
@@ -352,7 +420,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-06-30 02:39:47" itemprop="dateModified" datetime="2023-06-30T02:39:47+00:00">2023-06-30</time>
+                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
               </span>
 
           
@@ -416,7 +484,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-06-30 02:39:47" itemprop="dateModified" datetime="2023-06-30T02:39:47+00:00">2023-06-30</time>
+                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
               </span>
 
           
@@ -480,7 +548,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-06-30 02:39:47" itemprop="dateModified" datetime="2023-06-30T02:39:47+00:00">2023-06-30</time>
+                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
               </span>
 
           
@@ -544,7 +612,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-06-30 02:39:47" itemprop="dateModified" datetime="2023-06-30T02:39:47+00:00">2023-06-30</time>
+                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
               </span>
 
           
@@ -609,7 +677,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-06-30 02:39:47" itemprop="dateModified" datetime="2023-06-30T02:39:47+00:00">2023-06-30</time>
+                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
               </span>
 
           
@@ -676,7 +744,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-06-30 02:39:47" itemprop="dateModified" datetime="2023-06-30T02:39:47+00:00">2023-06-30</time>
+                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
               </span>
 
           
@@ -747,7 +815,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-06-30 02:39:47" itemprop="dateModified" datetime="2023-06-30T02:39:47+00:00">2023-06-30</time>
+                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
               </span>
 
           
@@ -762,96 +830,6 @@
 
       
           <h1 id="test-travis-CI-and-IO-page"><a href="#test-travis-CI-and-IO-page" class="headerlink" title="test travis CI and IO page"></a>test travis CI and IO page</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gongxicheng.cn/2018/06/29/before2020/2018-06-29-propertyreturnarry/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gary Gong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="恭喜">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/06/29/before2020/2018-06-29-propertyreturnarry/" class="post-title-link" itemprop="url">避免属性返回数组</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-06-29 00:00:00" itemprop="dateCreated datePublished" datetime="2018-06-29T00:00:00+00:00">2018-06-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-06-30 02:39:47" itemprop="dateModified" datetime="2023-06-30T02:39:47+00:00">2023-06-30</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>通常返回内部数组的副本是必需的，这样用户就无法改变对象的内部状态。但这会导致代码的效率十分低下。</p>
-<p>下面的例子中，在循环的每次迭代过程中 <code>Employees</code> 属性被访问了两次。下面这一小段代码就会产生2n+1个副本：</p>
-<pre><code>Company microsoft = GetCompanyData(&quot;MSFT&quot;);
-for(int i = 0 ; i &lt; microsoft.Employess.Lengthh; i++)&#123;
-    if(microsotf.Employess[i].Alias == &quot;kcwalina&quot;)&#123;
-    ...
-    &#125;
-&#125;
-</code></pre>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>这个问题可以通过以下两种方式解决。</p>
-<p>一种方式是把属性改为方法，这可以告诉调用者该操作不只是访问内部字段，还有可能在每次调用时创建一个数组。这样一来，用户很可能只调用一次该方法，把结果暂时保存起来，并对保存的结果进行操作。</p>
-<pre><code>Company microsoft =GetCompanyData(&quot;MSFT&quot;);
-Employees[] employees = microsoft.GetEmployees();
-for(int i = 0 ; i &lt; employees.Length; i++)&#123;
-    if(employees[i].Alias == &quot;kcwalina&quot;)&#123;
-    ...
-    &#125;
-&#125;
-</code></pre>
-<p>另一种方式是把属性的返回值改成集合而不要用数组。我们可以用’REadOnlyCollection<T>‘以只读的形式来公开提供对私有数据的访问。或者，我们也可以用’Collection<T>‘的子类来提供受控的读写访问，这样在用户的代码修改集合时，我们就能得到通知。</p>
-<pre><code>pulic ReadOnlyCOllection&lt;Employees&gt; Employees&#123;
-    get &#123;return roEmployees; &#125;
-&#125;
-private Employee[] employees;
-private ReadOnlyCollection&lt;Employees&gt; roEmployees;
-</code></pre>
-
       
     </div>
 
@@ -935,7 +913,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -948,7 +926,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
