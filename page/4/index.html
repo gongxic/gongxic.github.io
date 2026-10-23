@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -17,18 +17,18 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"gongxicheng.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"gongxic.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="恭喜">
-<meta property="og:url" content="https://gongxicheng.cn/page/4/index.html">
+<meta property="og:url" content="https://gongxic.github.io/page/4/index.html">
 <meta property="og:site_name" content="恭喜">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Gary Gong">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://gongxicheng.cn/page/4/">
+<link rel="canonical" href="https://gongxic.github.io/page/4/">
 
 
 <script id="page-configurations">
@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gongxicheng.cn/2018/06/29/before2020/2018-06-29-propertyreturnarry/">
+    <link itemprop="mainEntityOfPage" href="https://gongxic.github.io/2018/06/29/before2020/2018-06-29-propertyreturnarry/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -200,7 +200,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
+                <time title="修改时间：2026-10-23 01:19:02" itemprop="dateModified" datetime="2026-10-23T01:19:02+00:00">2026-10-23</time>
               </span>
 
           
@@ -217,26 +217,26 @@
           <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>通常返回内部数组的副本是必需的，这样用户就无法改变对象的内部状态。但这会导致代码的效率十分低下。</p>
 <p>下面的例子中，在循环的每次迭代过程中 <code>Employees</code> 属性被访问了两次。下面这一小段代码就会产生2n+1个副本：</p>
 <pre><code>Company microsoft = GetCompanyData(&quot;MSFT&quot;);
-for(int i = 0 ; i &lt; microsoft.Employess.Lengthh; i++)&#123;
-    if(microsotf.Employess[i].Alias == &quot;kcwalina&quot;)&#123;
+for(int i = 0 ; i &lt; microsoft.Employess.Lengthh; i++){
+    if(microsotf.Employess[i].Alias == &quot;kcwalina&quot;){
     ...
-    &#125;
-&#125;
+    }
+}
 </code></pre>
 <h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>这个问题可以通过以下两种方式解决。</p>
 <p>一种方式是把属性改为方法，这可以告诉调用者该操作不只是访问内部字段，还有可能在每次调用时创建一个数组。这样一来，用户很可能只调用一次该方法，把结果暂时保存起来，并对保存的结果进行操作。</p>
 <pre><code>Company microsoft =GetCompanyData(&quot;MSFT&quot;);
 Employees[] employees = microsoft.GetEmployees();
-for(int i = 0 ; i &lt; employees.Length; i++)&#123;
-    if(employees[i].Alias == &quot;kcwalina&quot;)&#123;
+for(int i = 0 ; i &lt; employees.Length; i++){
+    if(employees[i].Alias == &quot;kcwalina&quot;){
     ...
-    &#125;
-&#125;
+    }
+}
 </code></pre>
 <p>另一种方式是把属性的返回值改成集合而不要用数组。我们可以用’REadOnlyCollection<T>‘以只读的形式来公开提供对私有数据的访问。或者，我们也可以用’Collection<T>‘的子类来提供受控的读写访问，这样在用户的代码修改集合时，我们就能得到通知。</p>
-<pre><code>pulic ReadOnlyCOllection&lt;Employees&gt; Employees&#123;
-    get &#123;return roEmployees; &#125;
-&#125;
+<pre><code>pulic ReadOnlyCOllection&lt;Employees&gt; Employees{
+    get {return roEmployees; }
+}
 private Employee[] employees;
 private ReadOnlyCollection&lt;Employees&gt; roEmployees;
 </code></pre>
@@ -259,7 +259,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gongxicheng.cn/2018/06/28/before2020/2018-06-28-sheepcountquestion/">
+    <link itemprop="mainEntityOfPage" href="https://gongxic.github.io/2018/06/28/before2020/2018-06-28-sheepcountquestion/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -290,7 +290,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
+                <time title="修改时间：2026-10-23 01:19:02" itemprop="dateModified" datetime="2026-10-23T01:19:02+00:00">2026-10-23</time>
               </span>
 
           
@@ -327,7 +327,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gongxicheng.cn/2018/06/17/before2020/2018-06-17-Stringnote/">
+    <link itemprop="mainEntityOfPage" href="https://gongxic.github.io/2018/06/17/before2020/2018-06-17-Stringnote/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -358,7 +358,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
+                <time title="修改时间：2026-10-23 01:19:02" itemprop="dateModified" datetime="2026-10-23T01:19:02+00:00">2026-10-23</time>
               </span>
 
           
@@ -375,14 +375,14 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
           <h1 id="字符串换行"><a href="#字符串换行" class="headerlink" title="字符串换行"></a>字符串换行</h1> <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.Console.WriteLine(<span class="string">$@&quot;Your full name is : <span class="subst">&#123;</span></span></span><br><span class="line"><span class="subst"><span class="string">            firstName&#125;</span> <span class="subst">&#123;lastName&#125;</span>&quot;</span>);</span><br></pre></td></tr></table></figure>
 <pre><code>很好的点，可能不高级，但是看了觉着很好。
 </code></pre>
-<h1 id="using-static"><a href="#using-static" class="headerlink" title="using static"></a>using static</h1><pre><code class="C#">   using static System.Console;
+<h1 id="using-static"><a href="#using-static" class="headerlink" title="using static"></a>using static</h1><pre><code class="language-C#">   using static System.Console;
        class Program
-       &#123;
+       {
            static void Main(string[] args)
-           &#123;
+           {
                WriteLine(&quot;Hello World!&quot;);
-           &#125;
-   &#125;
+           }
+   }
 </code></pre>
 <p>C# 6.0的新写法</p>
 
@@ -404,7 +404,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gongxicheng.cn/2018/06/17/before2020/2018-06-17-C-sharp-int-and-decimal/">
+    <link itemprop="mainEntityOfPage" href="https://gongxic.github.io/2018/06/17/before2020/2018-06-17-C-sharp-int-and-decimal/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -435,7 +435,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
+                <time title="修改时间：2026-10-23 01:19:02" itemprop="dateModified" datetime="2026-10-23T01:19:02+00:00">2026-10-23</time>
               </span>
 
           
@@ -471,7 +471,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gongxicheng.cn/2018/06/07/before2020/2018-06-07-deploy-hexo-again-after-two-year/">
+    <link itemprop="mainEntityOfPage" href="https://gongxic.github.io/2018/06/07/before2020/2018-06-07-deploy-hexo-again-after-two-year/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -502,7 +502,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
+                <time title="修改时间：2026-10-23 01:19:02" itemprop="dateModified" datetime="2026-10-23T01:19:02+00:00">2026-10-23</time>
               </span>
 
           
@@ -626,7 +626,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gongxicheng.cn/2016/10/15/before2020/2016-10-15-visual-studoi-code-keyboard-shortcuts/">
+    <link itemprop="mainEntityOfPage" href="https://gongxic.github.io/2016/10/15/before2020/2016-10-15-visual-studoi-code-keyboard-shortcuts/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -657,7 +657,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
+                <time title="修改时间：2026-10-23 01:19:02" itemprop="dateModified" datetime="2026-10-23T01:19:02+00:00">2026-10-23</time>
               </span>
 
           
@@ -701,7 +701,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gongxicheng.cn/2016/10/12/before2020/2016-10-12-travis/">
+    <link itemprop="mainEntityOfPage" href="https://gongxic.github.io/2016/10/12/before2020/2016-10-12-travis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -732,7 +732,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
+                <time title="修改时间：2026-10-23 01:19:02" itemprop="dateModified" datetime="2026-10-23T01:19:02+00:00">2026-10-23</time>
               </span>
 
           
@@ -767,7 +767,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gongxicheng.cn/2016/01/09/before2020/2016-01-09-hello/">
+    <link itemprop="mainEntityOfPage" href="https://gongxic.github.io/2016/01/09/before2020/2016-01-09-hello/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -798,7 +798,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 04:09:29" itemprop="dateModified" datetime="2023-09-08T04:09:29+00:00">2023-09-08</time>
+                <time title="修改时间：2026-10-23 01:19:02" itemprop="dateModified" datetime="2026-10-23T01:19:02+00:00">2026-10-23</time>
               </span>
 
           
@@ -816,15 +816,14 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
 <li><p>注意config中的配置，：号后面有一个空格， type git </p>
 </li>
 <li><p>在搭建hexo博客的适合遇到个问题就是使用hexo deploy的时候遇到了下面的错误</p>
+</li>
+</ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Clearing</span><br><span class="line">Copying files from public folder.</span><br><span class="line">events.js:72</span><br><span class="line">        throw er; // Unhandled &#x27;error&#x27; event</span><br><span class="line">              ^</span><br><span class="line">Error: spawn ENOENT</span><br><span class="line">    at errnoException (child_process.js:980:11)</span><br><span class="line">    at Process.ChildProcess._handle.onexit (child_process.js:771:34)</span><br></pre></td></tr></table></figure>
 <p>解决方法就是在cmd下敲的命令无法实现，我们把命令在git shell下面敲打就可以实现了。<br>补充：找到原因了，因为没有设置环境变量导致的，在path中添加git的环境变量，就没有问题了</p>
-</li>
-<li><p>还有就是在 hexo d 之前 需要先执行 <code>npm install hexo-deployer-git --save</code></p>
-</li>
-<li><p>warning: LF will be replaced by CRLF」  我只使用这个命令就好用了  <a target="_blank" rel="noopener" href="http://www.reeoo.co/archives/AboutHexo.html">来源</a></p>
-</li>
-<li><p>部署的时候提示找不到username 的问题 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues/3043">github上的issue</a></p>
-</li>
+<ol start="3">
+<li>还有就是在 hexo d 之前 需要先执行 <code>npm install hexo-deployer-git --save</code></li>
+<li>warning: LF will be replaced by CRLF」  我只使用这个命令就好用了  <a target="_blank" rel="noopener" href="http://www.reeoo.co/archives/AboutHexo.html">来源</a></li>
+<li>部署的时候提示找不到username 的问题 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues/3043">github上的issue</a></li>
 </ol>
 <h1 id="hexo-资源"><a href="#hexo-资源" class="headerlink" title="hexo 资源"></a>hexo 资源</h1><p>这个人的记录了很多比较实用的hexo从搭建到使用的问题，非常的不错 <a target="_blank" rel="noopener" href="http://zipperary.com/categories/hexo/">链接</a></p>
 
@@ -956,7 +955,7 @@ private ReadOnlyCollection&lt;Employees&gt; roEmployees;
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2026</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
