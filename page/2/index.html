@@ -169,76 +169,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gongxic.github.io/2020/04/08/2020/2020-04-08-aliyun-centos7-install-docker/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gary Gong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="恭喜">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/08/2020/2020-04-08-aliyun-centos7-install-docker/" class="post-title-link" itemprop="url">aliyun centos7 install docker</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-08 10:34:05" itemprop="dateCreated datePublished" datetime="2020-04-08T10:34:05+00:00">2020-04-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-10-23 01:34:33" itemprop="dateModified" datetime="2026-10-23T01:34:33+00:00">2026-10-23</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Docker-CE-镜像源站"><a href="#Docker-CE-镜像源站" class="headerlink" title="Docker CE 镜像源站"></a>Docker CE 镜像源站</h1><p>docker</p>
-<p>安装</p>
-<p>engine</p>
-<p>docker-ce<br>Docker CE 镜像源站<br>使用官方安装脚本自动安装 （仅适用于公网环境）<br>curl -fsSL <a target="_blank" rel="noopener" href="https://get.docker.com/">https://get.docker.com</a> | bash -s docker –mirror Aliyun<br>手动安装帮助 (阿里云ECS可以通过内网安装，见注释部分内容)</p>
-<h2 id="Ubuntu-14-04-16-04-使用apt-get进行安装"><a href="#Ubuntu-14-04-16-04-使用apt-get进行安装" class="headerlink" title="Ubuntu 14.04 16.04 (使用apt-get进行安装)"></a>Ubuntu 14.04 16.04 (使用apt-get进行安装)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># step 1: 安装必要的一些系统工具</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common</span><br><span class="line"><span class="comment"># step 2: 安装GPG证书</span></span><br><span class="line">curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line"><span class="comment"># Step 3: 写入软件源信息</span></span><br><span class="line">sudo add-apt-repository <span class="string">&quot;deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu <span class="subst">$(lsb_release -cs)</span> stable&quot;</span></span><br><span class="line"><span class="comment"># Step 4: 更新并安装 Docker-CE</span></span><br><span class="line">sudo apt-get -y update</span><br><span class="line">sudo apt-get -y install docker-ce</span><br><span class="line"></span><br><span class="line">注意：其他注意事项在下面的注释中</span><br><span class="line"><span class="comment"># 安装指定版本的Docker-CE:</span></span><br><span class="line"><span class="comment"># Step 1: 查找Docker-CE的版本:</span></span><br><span class="line"><span class="comment"># apt-cache madison docker-ce</span></span><br><span class="line"><span class="comment">#   docker-ce | 17.03.1~ce-0~ubuntu-xenial | http://mirrors.aliyun.com/docker-ce/linux/ubuntu xenial/stable amd64 Packages</span></span><br><span class="line"><span class="comment">#   docker-ce | 17.03.0~ce-0~ubuntu-xenial | http://mirrors.aliyun.com/docker-ce/linux/ubuntu xenial/stable amd64 Packages</span></span><br><span class="line"><span class="comment"># Step 2: 安装指定版本的Docker-CE: (VERSION 例如上面的 17.03.1~ce-0~ubuntu-xenial)</span></span><br><span class="line"><span class="comment"># sudo apt-get -y install docker-ce=[VERSION]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过经典网络、VPC网络内网安装时，用以下命令替换Step 2、Step 3中的命令</span></span><br><span class="line"><span class="comment"># 经典网络：</span></span><br><span class="line"><span class="comment"># curl -fsSL http://mirrors.aliyuncs.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -</span></span><br><span class="line"><span class="comment"># sudo add-apt-repository &quot;deb [arch=amd64] http://mirrors.aliyuncs.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable&quot;</span></span><br><span class="line"><span class="comment"># VPC网络：</span></span><br><span class="line"><span class="comment"># curl -fsSL http://mirrors.cloud.aliyuncs.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -</span></span><br><span class="line"><span class="comment"># sudo add-apt-repository &quot;deb [arch=amd64] http://mirrors.cloud.aliyuncs.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable&quot;</span></span><br></pre></td></tr></table></figure>
-<h2 id="CentOS-7-使用yum进行安装"><a href="#CentOS-7-使用yum进行安装" class="headerlink" title="CentOS 7 (使用yum进行安装)"></a>CentOS 7 (使用yum进行安装)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># step 1: 安装必要的一些系统工具</span></span><br><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line"><span class="comment"># Step 2: 添加软件源信息</span></span><br><span class="line">sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line"><span class="comment"># Step 3: 更新并安装 Docker-CE</span></span><br><span class="line">sudo yum makecache fast</span><br><span class="line">sudo yum -y install docker-ce</span><br><span class="line"><span class="comment"># Step 4: 开启Docker服务</span></span><br><span class="line">sudo service docker start</span><br><span class="line"></span><br><span class="line">注意：其他注意事项在下面的注释中</span><br><span class="line"><span class="comment"># 官方软件源默认启用了最新的软件，您可以通过编辑软件源的方式获取各个版本的软件包。例如官方并没有将测试版本的软件源置为可用，你可以通过以下方式开启。同理可以开启各种测试版本等。</span></span><br><span class="line"><span class="comment"># vim /etc/yum.repos.d/docker-ce.repo</span></span><br><span class="line"><span class="comment">#   将 [docker-ce-test] 下方的 enabled=0 修改为 enabled=1</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 安装指定版本的Docker-CE:</span></span><br><span class="line"><span class="comment"># Step 1: 查找Docker-CE的版本:</span></span><br><span class="line"><span class="comment"># yum list docker-ce.x86_64 --showduplicates | sort -r</span></span><br><span class="line"><span class="comment">#   Loading mirror speeds from cached hostfile</span></span><br><span class="line"><span class="comment">#   Loaded plugins: branch, fastestmirror, langpacks</span></span><br><span class="line"><span class="comment">#   docker-ce.x86_64            17.03.1.ce-1.el7.centos            docker-ce-stable</span></span><br><span class="line"><span class="comment">#   docker-ce.x86_64            17.03.1.ce-1.el7.centos            @docker-ce-stable</span></span><br><span class="line"><span class="comment">#   docker-ce.x86_64            17.03.0.ce-1.el7.centos            docker-ce-stable</span></span><br><span class="line"><span class="comment">#   Available Packages</span></span><br><span class="line"><span class="comment"># Step2 : 安装指定版本的Docker-CE: (VERSION 例如上面的 17.03.0.ce.1-1.el7.centos)</span></span><br><span class="line"><span class="comment"># sudo yum -y install docker-ce-[VERSION]</span></span><br><span class="line"><span class="comment"># 注意：在某些版本之后，docker-ce安装出现了其他依赖包，如果安装失败的话请关注错误信息。例如 docker-ce 17.03 之后，需要先安装 docker-ce-selinux。</span></span><br><span class="line"><span class="comment"># yum list docker-ce-selinux- --showduplicates | sort -r</span></span><br><span class="line"><span class="comment"># sudo yum -y install docker-ce-selinux-[VERSION]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过经典网络、VPC网络内网安装时，用以下命令替换Step 2中的命令</span></span><br><span class="line"><span class="comment"># 经典网络：</span></span><br><span class="line"><span class="comment"># sudo yum-config-manager --add-repo http://mirrors.aliyuncs.com/docker-ce/linux/centos/docker-ce.repo</span></span><br><span class="line"><span class="comment"># VPC网络：</span></span><br><span class="line"><span class="comment"># sudo yum-config-manager --add-repo http://mirrors.could.aliyuncs.com/docker-ce/linux/centos/docker-ce.repo</span></span><br></pre></td></tr></table></figure>
-<h2 id="安装校验"><a href="#安装校验" class="headerlink" title="安装校验"></a>安装校验</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">root@iZbp12adskpuoxodbkqzjfZ:$ docker version</span><br><span class="line">Client:</span><br><span class="line"> Version:      17.03.0-ce</span><br><span class="line"> API version:  1.26</span><br><span class="line"> Go version:   go1.7.5</span><br><span class="line"> Git commit:   3a232c8</span><br><span class="line"> Built:        Tue Feb 28 07:52:04 2017</span><br><span class="line"> OS/Arch:      linux/amd64</span><br><span class="line"></span><br><span class="line">Server:</span><br><span class="line"> Version:      17.03.0-ce</span><br><span class="line"> API version:  1.26 (minimum version 1.12)</span><br><span class="line"> Go version:   go1.7.5</span><br><span class="line"> Git commit:   3a232c8</span><br><span class="line"> Built:        Tue Feb 28 07:52:04 2017</span><br><span class="line"> OS/Arch:      linux/amd64</span><br><span class="line"> Experimental: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gongxic.github.io/2020/04/07/2020/2020-04-07-fe-interview/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -270,7 +200,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-10-23 01:34:33" itemprop="dateModified" datetime="2026-10-23T01:34:33+00:00">2026-10-23</time>
+                <time title="修改时间：2026-10-23 01:46:16" itemprop="dateModified" datetime="2026-10-23T01:46:16+00:00">2026-10-23</time>
               </span>
 
           
@@ -344,7 +274,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-10-23 01:34:33" itemprop="dateModified" datetime="2026-10-23T01:34:33+00:00">2026-10-23</time>
+                <time title="修改时间：2026-10-23 01:46:16" itemprop="dateModified" datetime="2026-10-23T01:46:16+00:00">2026-10-23</time>
               </span>
 
           
@@ -589,7 +519,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-10-23 01:34:33" itemprop="dateModified" datetime="2026-10-23T01:34:33+00:00">2026-10-23</time>
+                <time title="修改时间：2026-10-23 01:46:16" itemprop="dateModified" datetime="2026-10-23T01:46:16+00:00">2026-10-23</time>
               </span>
 
           
@@ -671,7 +601,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-10-23 01:34:33" itemprop="dateModified" datetime="2026-10-23T01:34:33+00:00">2026-10-23</time>
+                <time title="修改时间：2026-10-23 01:46:16" itemprop="dateModified" datetime="2026-10-23T01:46:16+00:00">2026-10-23</time>
               </span>
 
           
@@ -688,159 +618,6 @@
           <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">configSections</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">section</span>  <span class="attr">name</span>=<span class="string">&quot;ReplaceStr&quot;</span> <span class="attr">type</span>=<span class="string">&quot;System.Configuration.DictionarySectionHandler&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">configSections</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">ReplaceStr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">add</span> <span class="attr">key</span>=<span class="string">&quot;(&quot;</span> <span class="attr">value</span>=<span class="string">&quot;0&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">add</span> <span class="attr">key</span>=<span class="string">&quot;)&quot;</span> <span class="attr">value</span>=<span class="string">&quot;0&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ReplaceStr</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> section = (ConfigurationManager.GetSection(<span class="string">&quot;ReplaceStr&quot;</span>) <span class="keyword">as</span> System.Collections.Hashtable)</span><br><span class="line">                 .Cast&lt;System.Collections.DictionaryEntry&gt;()</span><br><span class="line">                 .ToDictionary(n =&gt; n.Key.ToString(), n =&gt; n.Value.ToString());</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gongxic.github.io/2020/01/02/before2020/2020-01-02-review-2019/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gary Gong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="恭喜">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/02/before2020/2020-01-02-review-2019/" class="post-title-link" itemprop="url">回望2019</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-02 10:34:05" itemprop="dateCreated datePublished" datetime="2020-01-02T10:34:05+00:00">2020-01-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-10-23 01:34:33" itemprop="dateModified" datetime="2026-10-23T01:34:33+00:00">2026-10-23</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本来打算写点 python 界面的东西，但是想想自己了解的也不多，打算写的时候还不如简单回顾一下2019年的自己。</p>
-<p>回顾下2019年自己的大事吧：</p>
-<ol>
-<li>最大的事算是儿子的降生。</li>
-<li>换了工作</li>
-</ol>
-<p>目前看来也就这两件事吧。</p>
-<h3 id="儿子来啦"><a href="#儿子来啦" class="headerlink" title="儿子来啦"></a>儿子来啦</h3><p>我和媳妇都是独生子女，即使到了怀孕的时候感觉自己还是很任性的。总有一种没长大的感觉，想玩玩，想吃吃。没有太多牵挂的事，媳妇更是保持着部分少女行，没事撒娇啥的.儿子来了以后媳妇和我都长大了一些。也算为人父母，更加知道照顾孩子了。在月子里，住在了丈母娘家里，这是当初一起计划的，结果在住过去后发生了一些不愉快的事情，虽然事情的主角不是我们，但是我俩依然很不自在。现在夫妻俩都是打工的，孩子目前也没有更好的照顾的办法，以后的路更长，不知道有啥好办法。只能希望儿子能健康成长吧。</p>
-<h3 id="换工作"><a href="#换工作" class="headerlink" title="换工作"></a>换工作</h3><p>从17年末开始尝试的投递简历，换换工作。自己英语不好，表达能力也不咋好，导致在面试的时候各种悲剧，本身面试的公司也不多，结果就更凄惨的不行。其中还有比较坑的HR，面试官。结果导致两年的面试结果很不好。这导致了我自己的担忧，担心以后没法找工作。毕竟原公司的领导朝令夕改也是常事，自己看自己在这的发展也只是慢慢的熬资历而已，而且领导不喜欢我的性格。所以坚定了要换一家。在年中，在埃森哲的第N此面试通过了。18年的时候成功的了一次工资和当时涨幅很少，今年更惨，几乎没涨幅了。但是因为想换，而且年终也会多一个月的工资，所以还是收下了这个offer。<br>这来了埃森哲以后，真是一言难尽。这项目组就是一个卖人的部门。把人卖个客户，客户是埃森哲的BPO流程改善部门。在最开始找工作的时候，就有人说过尽量还是不去BPO的好，因为他们追求的不是技术解决问题。而且改善流程，而且要最少的花销。这导致了BPO都是希望找一些第三方的工具，简单分装后就要能够使用。根本没有深入的对技术进行研究，真正的改善流程。而且面向的使用人员也少，所以导致整个项目没有太多的技术含量。来了半年，写的winform，和一些各种乱造的工具tool产品。对于主流的技术，真是越来越远。<br>都是想到哪写到哪，可能前后的逻辑比较乱。当时自己的一通牢骚。</p>
-<h3 id="新年展望"><a href="#新年展望" class="headerlink" title="新年展望"></a>新年展望</h3><p>希望儿子能够健康成长，我自己应该首先攻克英语的难关，在大连语言有时候比技术更重要，技术旗鼓相当的当然选语言好的。英语真的是必备的第二技能。</p>
-<p>牢骚，也来的仔细修改。这可能就是我的性格的缺点吧。</p>
-<p>2020 01 02 酱油的时候留下的一篇牢骚。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gongxic.github.io/2020/01/02/before2020/2020-01-02-tkinter-combobox/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Gary Gong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="恭喜">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/02/before2020/2020-01-02-tkinter-combobox/" class="post-title-link" itemprop="url">Python Tkinter  Combobox</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-02 10:34:05" itemprop="dateCreated datePublished" datetime="2020-01-02T10:34:05+00:00">2020-01-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-10-23 01:34:33" itemprop="dateModified" datetime="2026-10-23T01:34:33+00:00">2026-10-23</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>###基础</p>
-<p><code>Combobox</code> 包含在 ‘ttk’ 中，所以需要先引入 ttk</p>
-<p>Combobox 支持的属性：</p>
-<ul>
-<li>values 或者 value :</li>
-<li>state : readonly </li>
-<li>current: 选中的内容</li>
-<li>ComboboxSelected ：绑定的选择事件</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter</span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> ttk <span class="comment"># 导入ttk模块，因为下拉菜单控件在ttk中</span></span><br><span class="line"></span><br><span class="line">root = tkinter.Tk()</span><br><span class="line">root.title(<span class="string">&quot;root&quot;</span>)</span><br><span class="line">root.geometry(<span class="string">&quot;300x200+10+20&quot;</span>)</span><br><span class="line"></span><br><span class="line">xVar = tkinter.StringVar()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建下拉菜单</span></span><br><span class="line">cmb = ttk.Combobox(root,textvariable=xVar)</span><br><span class="line">cmb.pack(side=tkinter.TOP)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置下拉菜单中的值</span></span><br><span class="line">cmb[<span class="string">&#x27;value&#x27;</span>] = (<span class="string">&#x27;上海&#x27;</span>,<span class="string">&#x27;北京&#x27;</span>,<span class="string">&#x27;天津&#x27;</span>,<span class="string">&#x27;广州&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置默认值，即默认下拉框中的内容 默认值中的内容为索引，从0开始</span></span><br><span class="line">cmb.current(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">event</span>):</span><br><span class="line">    lVar.<span class="built_in">set</span>(<span class="string">&#x27;label1&#x27;</span>+cmb.get())</span><br><span class="line">    label2.config(text=<span class="string">&#x27;label2&#x27;</span>+xVar.get())</span><br><span class="line">cmb.bind(<span class="string">&quot;&lt;&lt;ComboboxSelected&gt;&gt;&quot;</span>,func)</span><br><span class="line"></span><br><span class="line">lVar = tkinter.StringVar()</span><br><span class="line"></span><br><span class="line">label1 = tkinter.Label(root,textvariable=lVar,)</span><br><span class="line">label1.pack(side=tkinter.TOP)</span><br><span class="line"></span><br><span class="line">label2 = tkinter.Label(root,bg=<span class="string">&#x27;green&#x27;</span>)</span><br><span class="line">label2.pack(side=tkinter.TOP)</span><br><span class="line"></span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -890,7 +667,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-10-23 01:34:33" itemprop="dateModified" datetime="2026-10-23T01:34:33+00:00">2026-10-23</time>
+                <time title="修改时间：2026-10-23 01:46:16" itemprop="dateModified" datetime="2026-10-23T01:46:16+00:00">2026-10-23</time>
               </span>
 
           
@@ -1106,6 +883,159 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gongxic.github.io/2020/01/02/before2020/2020-01-02-review-2019/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gary Gong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="恭喜">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/02/before2020/2020-01-02-review-2019/" class="post-title-link" itemprop="url">回望2019</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-02 10:34:05" itemprop="dateCreated datePublished" datetime="2020-01-02T10:34:05+00:00">2020-01-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-10-23 01:46:16" itemprop="dateModified" datetime="2026-10-23T01:46:16+00:00">2026-10-23</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>本来打算写点 python 界面的东西，但是想想自己了解的也不多，打算写的时候还不如简单回顾一下2019年的自己。</p>
+<p>回顾下2019年自己的大事吧：</p>
+<ol>
+<li>最大的事算是儿子的降生。</li>
+<li>换了工作</li>
+</ol>
+<p>目前看来也就这两件事吧。</p>
+<h3 id="儿子来啦"><a href="#儿子来啦" class="headerlink" title="儿子来啦"></a>儿子来啦</h3><p>我和媳妇都是独生子女，即使到了怀孕的时候感觉自己还是很任性的。总有一种没长大的感觉，想玩玩，想吃吃。没有太多牵挂的事，媳妇更是保持着部分少女行，没事撒娇啥的.儿子来了以后媳妇和我都长大了一些。也算为人父母，更加知道照顾孩子了。在月子里，住在了丈母娘家里，这是当初一起计划的，结果在住过去后发生了一些不愉快的事情，虽然事情的主角不是我们，但是我俩依然很不自在。现在夫妻俩都是打工的，孩子目前也没有更好的照顾的办法，以后的路更长，不知道有啥好办法。只能希望儿子能健康成长吧。</p>
+<h3 id="换工作"><a href="#换工作" class="headerlink" title="换工作"></a>换工作</h3><p>从17年末开始尝试的投递简历，换换工作。自己英语不好，表达能力也不咋好，导致在面试的时候各种悲剧，本身面试的公司也不多，结果就更凄惨的不行。其中还有比较坑的HR，面试官。结果导致两年的面试结果很不好。这导致了我自己的担忧，担心以后没法找工作。毕竟原公司的领导朝令夕改也是常事，自己看自己在这的发展也只是慢慢的熬资历而已，而且领导不喜欢我的性格。所以坚定了要换一家。在年中，在埃森哲的第N此面试通过了。18年的时候成功的了一次工资和当时涨幅很少，今年更惨，几乎没涨幅了。但是因为想换，而且年终也会多一个月的工资，所以还是收下了这个offer。<br>这来了埃森哲以后，真是一言难尽。这项目组就是一个卖人的部门。把人卖个客户，客户是埃森哲的BPO流程改善部门。在最开始找工作的时候，就有人说过尽量还是不去BPO的好，因为他们追求的不是技术解决问题。而且改善流程，而且要最少的花销。这导致了BPO都是希望找一些第三方的工具，简单分装后就要能够使用。根本没有深入的对技术进行研究，真正的改善流程。而且面向的使用人员也少，所以导致整个项目没有太多的技术含量。来了半年，写的winform，和一些各种乱造的工具tool产品。对于主流的技术，真是越来越远。<br>都是想到哪写到哪，可能前后的逻辑比较乱。当时自己的一通牢骚。</p>
+<h3 id="新年展望"><a href="#新年展望" class="headerlink" title="新年展望"></a>新年展望</h3><p>希望儿子能够健康成长，我自己应该首先攻克英语的难关，在大连语言有时候比技术更重要，技术旗鼓相当的当然选语言好的。英语真的是必备的第二技能。</p>
+<p>牢骚，也来的仔细修改。这可能就是我的性格的缺点吧。</p>
+<p>2020 01 02 酱油的时候留下的一篇牢骚。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gongxic.github.io/2020/01/02/before2020/2020-01-02-tkinter-combobox/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gary Gong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="恭喜">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/02/before2020/2020-01-02-tkinter-combobox/" class="post-title-link" itemprop="url">Python Tkinter  Combobox</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-02 10:34:05" itemprop="dateCreated datePublished" datetime="2020-01-02T10:34:05+00:00">2020-01-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-10-23 01:46:16" itemprop="dateModified" datetime="2026-10-23T01:46:16+00:00">2026-10-23</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>###基础</p>
+<p><code>Combobox</code> 包含在 ‘ttk’ 中，所以需要先引入 ttk</p>
+<p>Combobox 支持的属性：</p>
+<ul>
+<li>values 或者 value :</li>
+<li>state : readonly </li>
+<li>current: 选中的内容</li>
+<li>ComboboxSelected ：绑定的选择事件</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter</span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> ttk <span class="comment"># 导入ttk模块，因为下拉菜单控件在ttk中</span></span><br><span class="line"></span><br><span class="line">root = tkinter.Tk()</span><br><span class="line">root.title(<span class="string">&quot;root&quot;</span>)</span><br><span class="line">root.geometry(<span class="string">&quot;300x200+10+20&quot;</span>)</span><br><span class="line"></span><br><span class="line">xVar = tkinter.StringVar()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建下拉菜单</span></span><br><span class="line">cmb = ttk.Combobox(root,textvariable=xVar)</span><br><span class="line">cmb.pack(side=tkinter.TOP)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置下拉菜单中的值</span></span><br><span class="line">cmb[<span class="string">&#x27;value&#x27;</span>] = (<span class="string">&#x27;上海&#x27;</span>,<span class="string">&#x27;北京&#x27;</span>,<span class="string">&#x27;天津&#x27;</span>,<span class="string">&#x27;广州&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置默认值，即默认下拉框中的内容 默认值中的内容为索引，从0开始</span></span><br><span class="line">cmb.current(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">event</span>):</span><br><span class="line">    lVar.<span class="built_in">set</span>(<span class="string">&#x27;label1&#x27;</span>+cmb.get())</span><br><span class="line">    label2.config(text=<span class="string">&#x27;label2&#x27;</span>+xVar.get())</span><br><span class="line">cmb.bind(<span class="string">&quot;&lt;&lt;ComboboxSelected&gt;&gt;&quot;</span>,func)</span><br><span class="line"></span><br><span class="line">lVar = tkinter.StringVar()</span><br><span class="line"></span><br><span class="line">label1 = tkinter.Label(root,textvariable=lVar,)</span><br><span class="line">label1.pack(side=tkinter.TOP)</span><br><span class="line"></span><br><span class="line">label2 = tkinter.Label(root,bg=<span class="string">&#x27;green&#x27;</span>)</span><br><span class="line">label2.pack(side=tkinter.TOP)</span><br><span class="line"></span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gongxic.github.io/2019/09/01/before2020/2019-09-01-banwagong-install-shadowsockets/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1137,7 +1067,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-10-23 01:34:33" itemprop="dateModified" datetime="2026-10-23T01:34:33+00:00">2026-10-23</time>
+                <time title="修改时间：2026-10-23 01:46:16" itemprop="dateModified" datetime="2026-10-23T01:46:16+00:00">2026-10-23</time>
               </span>
 
           
@@ -1233,7 +1163,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-10-23 01:34:33" itemprop="dateModified" datetime="2026-10-23T01:34:33+00:00">2026-10-23</time>
+                <time title="修改时间：2026-10-23 01:46:16" itemprop="dateModified" datetime="2026-10-23T01:46:16+00:00">2026-10-23</time>
               </span>
 
           
@@ -1252,6 +1182,90 @@
 
 <h2 id="容器化-Net-Core-程序"><a href="#容器化-Net-Core-程序" class="headerlink" title="容器化 .Net Core 程序"></a>容器化 .Net Core 程序</h2><h3 id="第一个-Dockerfile"><a href="#第一个-Dockerfile" class="headerlink" title="第一个 Dockerfile"></a>第一个 Dockerfile</h3><p>创建没有后缀的的 Dockerfile</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">FROM microsoft/dotnet:2.1-sdk</span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line"><span class="comment"># copy csproj and restore as distinct layers</span></span><br><span class="line">COPY *.csproj ./</span><br><span class="line">RUN dotnet restore</span><br><span class="line"></span><br><span class="line"><span class="comment"># copy and build everything else</span></span><br><span class="line">COPY . ./</span><br><span class="line">RUN dotnet publish -c Release -o out</span><br><span class="line">ENTRYPOINT [<span class="string">&quot;dotnet&quot;</span>, <span class="string">&quot;out/DockerHello.dll&quot;</span>]</span><br><span class="line">````</span><br><span class="line"></span><br><span class="line"><span class="comment">### build and run</span></span><br><span class="line"></span><br><span class="line">分别执行以下两个命令，分别是创建 image 和运行 image</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">docker build -t dotnetapp-dev .</span><br><span class="line">docker run --<span class="built_in">rm</span> dotnetapp-dev Hello from Docker</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gongxic.github.io/2019/04/08/before2020/2019-04-08-list-to-dictionary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gary Gong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="恭喜">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/08/before2020/2019-04-08-list-to-dictionary/" class="post-title-link" itemprop="url">c# List to Dictionary</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-04-08 17:51:05" itemprop="dateCreated datePublished" datetime="2019-04-08T17:51:05+00:00">2019-04-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-10-23 01:46:16" itemprop="dateModified" datetime="2026-10-23T01:46:16+00:00">2026-10-23</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>C#.NET 利用ToDictionary()，GroupBy()，可以将List转化为Dictionary，主需要一行代码！</p>
+<p>首先看一下需求，已知cars，等于：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Car&gt; cars = <span class="keyword">new</span> List&lt;Car&gt;()&#123;</span><br><span class="line">                <span class="keyword">new</span> Car(<span class="number">1</span>,<span class="string">&quot;audiA6&quot;</span>,<span class="string">&quot;private&quot;</span>),</span><br><span class="line">                <span class="keyword">new</span> Car(<span class="number">2</span>,<span class="string">&quot;futon&quot;</span>,<span class="string">&quot;merchant&quot;</span>),</span><br><span class="line">                <span class="keyword">new</span> Car(<span class="number">3</span>,<span class="string">&quot;feiren&quot;</span>,<span class="string">&quot;bike&quot;</span>),</span><br><span class="line">                <span class="keyword">new</span> Car(<span class="number">4</span>,<span class="string">&quot;bukon&quot;</span>,<span class="string">&quot;private&quot;</span>),</span><br><span class="line">                <span class="keyword">new</span> Car(<span class="number">5</span>,<span class="string">&quot;baoma&quot;</span>,<span class="string">&quot;private&quot;</span>),</span><br><span class="line">                <span class="keyword">new</span> Car(<span class="number">6</span>,<span class="string">&quot;dayun&quot;</span>,<span class="string">&quot;merchant&quot;</span>)</span><br><span class="line">            &#125;;</span><br></pre></td></tr></table></figure>
+<p>1）我想以id为键，值为Car转化为一个字典idCarDict，方法如下：</p>
+<pre><code>var idCarDict = cars.ToDictionary(car=&gt;car.id);
+</code></pre>
+<p>这样保证能正确转化的前提为，id在列表中没有重复值。如果有重复的，会抛出向字典中添加重复值的异常。</p>
+<p>2）我想以type为键，值car的List的typeDict，方法如下：</p>
+<pre><code>Dictionary&lt;string, List&lt;Car&gt;&gt; typeCarDict = cars.GroupBy(car =&gt; car.type).ToDictionary(r =&gt; r.Key, r =&gt; r.ToList());
+</code></pre>
+<p>分步解释：<br>第一步分组</p>
+<pre><code>cars.GroupBy(car=&gt;car.type) //返回的结果类型为： //IEnumerable&lt;IGroup&lt;string,car&gt;&gt;;
+</code></pre>
+<p>&#x2F;&#x2F;其中string等于car.type，也就是分组的键<br>第二步将IEnumerable类型转化为字典，选取合适的键，</p>
+<pre><code>ToDictionary(r=&gt;r.Key,r=&gt;r.ToList());
+</code></pre>
+<p>&#x2F;&#x2F;r参数代表分组对象，r.Key便是car.type;<br>&#x2F;&#x2F;r.ToList()操作后将分组对象转化为List对象<br>这种转化代码简介，比以下foreach遍历得到以car.type的字典简洁许多：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dict = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>,List&lt;Car&gt;&gt;();</span><br><span class="line"><span class="keyword">foreach</span>(<span class="keyword">var</span> car <span class="keyword">in</span> cars)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">if</span>(dict.Contains(car.type))</span><br><span class="line">     dict[car.type].Add(car);</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    dict.Add(car.type,<span class="keyword">new</span> List&lt;Car&gt;()&#123;car&#125;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>转的文章，希望自己能记住todictionary 的使用方法<br><a target="_blank" rel="noopener" href="http://www.voidcn.com/article/p-cvbngeoz-p.html">链接</a></p>
+
       
     </div>
 
@@ -1335,7 +1349,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
