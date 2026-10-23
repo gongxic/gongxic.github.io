@@ -28,7 +28,7 @@
 <meta property="og:description" content="指令最常见的一个应用是创建可重用构件。 下面的为代码展示了一个简单版本的对话框指令的使用。 12345678910&lt;div&gt;  &lt;button ng-click&#x3D;&quot;show&#x3D;true&quot;&gt;show&lt;&#x2F;button&gt;   &lt;dialog title&#x3D;&quot;Hello .&quot;          visible&#x3D;&quot;sho">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-16T10:34:05.000Z">
-<meta property="article:modified_time" content="2026-10-23T01:19:02.435Z">
+<meta property="article:modified_time" content="2026-10-23T01:34:33.794Z">
 <meta property="article:author" content="Gary Gong">
 <meta property="article:tag" content="angularjs">
 <meta name="twitter:card" content="summary">
@@ -205,7 +205,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-10-23 01:19:02" itemprop="dateModified" datetime="2026-10-23T01:19:02+00:00">2026-10-23</time>
+                <time title="修改时间：2026-10-23 01:34:33" itemprop="dateModified" datetime="2026-10-23T01:34:33+00:00">2026-10-23</time>
               </span>
 
           
@@ -226,11 +226,11 @@
 <p>下面是 dialog 指令中的模板属性：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-show</span>=<span class="string">&quot;visible&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h3</span>&gt;</span><span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;body&quot;</span> <span class="attr">ng-transclude</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">ng-click</span>=<span class="string">&quot;onOk()&quot;</span>&gt;</span>Save changes<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">ng-click</span>=<span class="string">&quot;onCancel()&quot;</span>&gt;</span>Close<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>上面这个指令的模板还不能适当地渲染，除非我们施上一些魔法。</p>
-<p>第一个问题是解决对话框模板中需要的 title 数据。而我们希望模板中的 title 和指令 <dialog> 被使用时的 title 属性一致（也就是 “Hello “）。而且，模板中的按钮会去调用作用域中的 onOk 和 onCancel 两个函数，而这两个函数的来源也在指令的属性中有定义，要解决的就是映射的问题了。为了解决这个映射问题，我们使用本地 scope 创建本地变量（模板中需要的数据和函数）和外部变量（指令中已有的属性）映射：</p>
+<p>第一个问题是解决对话框模板中需要的 title 数据。而我们希望模板中的 title 和指令 <dialog> 被使用时的 title 属性一致（也就是 “Hello {{username}}”）。而且，模板中的按钮会去调用作用域中的 onOk 和 onCancel 两个函数，而这两个函数的来源也在指令的属性中有定义，要解决的就是映射的问题了。为了解决这个映射问题，我们使用本地 scope 创建本地变量（模板中需要的数据和函数）和外部变量（指令中已有的属性）映射：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">scope</span>: &#123;</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&#x27;@&#x27;</span>,             <span class="comment">// the title uses the data-binding from the parent scope</span></span><br><span class="line">  <span class="attr">onOk</span>: <span class="string">&#x27;&amp;&#x27;</span>,              <span class="comment">// create a delegate onOk function</span></span><br><span class="line">  <span class="attr">onCancel</span>: <span class="string">&#x27;&amp;&#x27;</span>,          <span class="comment">// create a delegate onCancel function</span></span><br><span class="line">  <span class="attr">visible</span>: <span class="string">&#x27;=&#x27;</span>            <span class="comment">// set up visible to accept data-binding</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在指令的作用域创建本地变量会产生两个问题：</p>
 <p>独立的作用域 - 如果用户（译注：使用对话框指令的开发者）在使用 dialog 指令时忘记设置 title 属性，那么对话框指令的模板中的 title 解析时则会去绑定父级作用域中的同名属性。这是完全不可预测的，也不是我们希望看到的。</p>
-<p>transclusion - 通过引用包含的DOM节点可以看到指令的本地变量，而这本地变量有可能会重写掉一些 transclusion （引用包含）中数据绑定的同名属性。在上述例子中，比如像指令所在的 scope 中的 title 属性就重写了在 transclusion （引用包含）的作用域的 title 属性（译注：这里 Body goes here:  is 作用域与Transcluded指令是如何工作的. 是通过 transclusion 插入到 dialog 指令模版中拥有 ng-transclude 属性的div中，这样它里面的 title 插值就会被 dialog 本地的 title 值改写 ）</p>
+<p>transclusion - 通过引用包含的DOM节点可以看到指令的本地变量，而这本地变量有可能会重写掉一些 transclusion （引用包含）中数据绑定的同名属性。在上述例子中，比如像指令所在的 scope 中的 title 属性就重写了在 transclusion （引用包含）的作用域的 title 属性（译注：这里 Body goes here: {{username}} is {{title}}. 是通过 transclusion 插入到 dialog 指令模版中拥有 ng-transclude 属性的div中，这样它里面的 title 插值就会被 dialog 本地的 title 值改写 ）</p>
 <p>为了解决缺少隔离的问题，指令会声明一个 isolated 作用域。一个隔离的作用域不会通过基于原型的方式继承它的父级作用域，所以我嗯就不用担心会有属性被意外改写的情况了。</p>
 <p>但是，独立的作用域引来了另外一个问题：如果一个 transcluded（引用包含的） DOM节点是一个指令独立作用域的孩子节点的话，那么它不会绑定到任何数据（译注：像我们上面例子中的情况，就属于绑定不到数据）。出于此，在指令为本地变量创建出独立的作用域之前，我们需要声明 transcluded（引用包含的）作用域是原始作用域（也是独立作用域的父级）的孩子。这样，引用包含创建的作用域就和独立作用域拥有同样的父级，也就是说它们是兄弟作用域。</p>
 <p>这会让一切看起来意想不到的复杂，但至少它让指令（控件）的用户和开发者不会那么难以接受。</p>
@@ -259,8 +259,8 @@
       <i class="fa fa-chevron-left"></i> c# – 从app.config configSection中读取键值对到字典
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/04/07/2020/2020-04-07-fe-interview/" rel="next" title="前端面试题">
-      前端面试题 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/02/17/2020/2020-02-17-angularquestion/" rel="next" title="Angularjs 常见面试题总结">
+      Angularjs 常见面试题总结 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -333,7 +333,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -346,7 +346,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
